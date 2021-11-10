@@ -7,7 +7,7 @@ const userName = document.querySelector('.user-name')
 const buttonAuth = document.querySelector('.button-auth')
 const logInForm = document.getElementById('logInForm')
 const inputLogin = document.getElementById('login')
-const inputPassword = document.getElementById('password')
+const inputTel = document.getElementById('tel')
 
 const login = (user) => {
 	buttonOut.style.display ='flex'
@@ -46,7 +46,7 @@ logInForm.addEventListener('submit', (e) => {
 	e.preventDefault()
 	const user = {
 		login: inputLogin.value,
-		password: inputPassword.value,
+		tel: inputTel.value,
 	}
 	if(inputLogin.value ===''){
 		alert('Ошибка, сначала ведите логин')

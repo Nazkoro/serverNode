@@ -99,9 +99,11 @@ const cart = () => {
 		
 		console.log('parse',JSON.parse(cartArray));
 		let arrCart = JSON.parse(cartArray);
-		let arrUser = JSON.parse(cartArray);
+		let arrUser = JSON.parse(userArray);
 		// console.log( typeof arr, arr);
 		arrCart.unshift(arrUser);
+		let infoArr = JSON.stringify(arrCart)
+		console.log(infoArr);
 		
 		
 		// console.log(JSON.parse(cartArray).unshift(userArray)) 
@@ -111,7 +113,7 @@ const cart = () => {
 
 		fetch('/user', {
 			method: 'POST',
-			body: cartArray,
+			body: infoArr,
 			headers: {
 			'Content-Type': 'application/json',
 			// 'name': 'cartArray'

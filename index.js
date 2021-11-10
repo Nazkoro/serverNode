@@ -20,8 +20,14 @@ const jsonParser = express.json();
 app.post("/user", jsonParser, function (request, response) {
     console.log(request.body);
     if(!request.body) return response.sendStatus(400);
-	
-	let str =' '
+	console.log('========');
+	console.log('req-body',request.body);
+	// console.log('req-body-shift',request.body.shift());
+	let name = request.body.shift();
+	console.log('name',name);
+	// login
+	// password
+	let str =`Имя: ${name.login}\n Телефон: ${name.tel}\n`
 
 	for(let i =0; i<request.body.length; i++){
 		str =  str + ' Продукт: '+ request.body[i].name  + ', цена: '+ request.body[i].price + ', количество: '+request.body[i].count + '.\n'
@@ -31,7 +37,7 @@ app.post("/user", jsonParser, function (request, response) {
 	// console.log('----------------');
 	// console.log(request);
 	// console.log( request.body[0]);
-	console.log( request.body[1]);
+	console.log( request.body[0]);
 	console.log('-----------------');
 
      bot.sendMessage(chat_id, `Новый заказ\n ${str}`)
